@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: microservice4
+  description: Prueba de integración entre Backstage y GitHub
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    platform.wenia.com/template: microservice
+    platform.wenia.com/template-version: '1'
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/platform
+  providesApis:
+    - microservice4-platform
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microservice4-platform
+  description: 'API for microservice4: platform'
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: group:default/platform
+  definition:
+    $text: ./docs/openapi.yaml
